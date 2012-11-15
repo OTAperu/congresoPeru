@@ -1,0 +1,32 @@
+.control-group
+  != form.label("name", false, {class: "control-label"})
+  .controls
+    != form.input("name")
+.control-group
+  != form.label("summary", false, {class: "control-label"})
+  .controls
+    != form.input("summary")
+.control-group
+  != form.label("text", false, {class: "control-label"})
+  .controls
+    != form.input("text")
+.control-group
+  != form.label("conId", false, {class: "control-label"})
+  .controls
+    != form.input("conId")
+.control-group
+  != form.label("created", false, {class: "control-label"})
+  .controls
+    != form.input("created", {type: 'date'})
+.control-group
+  != form.label("approval", false, {class: "control-label"})
+  .controls
+    != form.input("approval", {type: 'date'})
+.control-group
+  != form.label("created_at", false, {class: "control-label"})
+  .controls
+    != form.input("created_at", {type: 'date'})
+.control-group
+  != form.label("updated_at", false, {class: "control-label"})
+  .controls
+    != form.input("updated_at", {type: 'date'})

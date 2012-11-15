@@ -1,0 +1,35 @@
+.page-header
+  h1 Details of party
+
+table.table.table-bordered
+  tbody(about=path_to.party(party))
+    tr
+      th name
+      td= party.name
+
+    tr
+      th review
+      td= party.review
+
+    tr
+      th image
+      td= party.image
+
+    tr
+      th founded
+      td= party.founded
+
+    tr
+      th ideology
+      td= party.ideology
+
+    tr
+      th website
+      td= party.website
+
+
+.well
+  != link_to('Edit', path_to.edit_party(party), {class: 'btn primary'}) + ' '
+  != link_to('Delete', path_to.party(party), {class: 'btn danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'})
+  span= ' or '
+  != link_to('Back to index', path_to.parties())

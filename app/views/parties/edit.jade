@@ -1,0 +1,10 @@
+.page-header
+  h1 Edit party
+
+- form_for(party, {action: path_to.party(party), method: 'PUT', id: "party_form"}, function (form) {
+  != partial('parties/form.jade', {locals: {form: form, party: party}})
+  .actions
+    != form.submit('Update party', {class: 'btn primary'})
+    span= ' or '
+    != link_to('Cancel', path_to.party(party), {class: 'btn'})
+- });

@@ -1,0 +1,24 @@
+.control-group
+  != form.label("name", false, {class: "control-label"})
+  .controls
+    != form.input("name")
+.control-group
+  != form.label("review", false, {class: "control-label"})
+  .controls
+    != form.input("review")
+.control-group
+  != form.label("image", false, {class: "control-label"})
+  .controls
+    != form.input("image")
+.control-group
+  != form.label("founded", false, {class: "control-label"})
+  .controls
+    != form.input("founded", {type: 'date'})
+.control-group
+  != form.label("ideology", false, {class: "control-label"})
+  .controls
+    != form.input("ideology")
+.control-group
+  != form.label("website", false, {class: "control-label"})
+  .controls
+    != form.input("website")

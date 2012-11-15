@@ -1,0 +1,24 @@
+.page-header
+  h1 Index of project
+
+.row
+  .span12
+      p!= link_to ('<i class="icon-plus icon-white"></i> New project', path_to.new_project(), {class: 'btn btn-primary'})
+      if projects.length > 0
+        table.table.table-striped
+          thead
+            tr
+              th ID
+              th Actions
+            tbody
+              - projects.forEach(function (project) {
+                tr
+                  td
+                    strong!= link_to(project.name, path_to.project(project))
+                  td
+                    != link_to('<i class="icon-edit icon-white"></i> Edit', path_to.edit_project(project), {class: 'btn btn-mini btn-primary'}) + ' '
+                    != link_to('<i class="icon-remove icon-white"></i> Delete', path_to.project(project), {class: 'btn btn-mini btn-danger', method: 'delete', remote: true, jsonp: '(function (u) {location.href = u;})'})
+              - });
+      else
+        p.alert.alert-block.alert-info
+          strong No projects were found.

@@ -1,0 +1,43 @@
+.page-header
+  h1 Details of project
+
+table.table.table-bordered
+  tbody(about=path_to.project(project))
+    tr
+      th name
+      td= project.name
+
+    tr
+      th summary
+      td= project.summary
+
+    tr
+      th text
+      td= project.text
+
+    tr
+      th conId
+      td= project.conId
+
+    tr
+      th created
+      td= project.created
+
+    tr
+      th approval
+      td= project.approval
+
+    tr
+      th created_at
+      td= project.created_at
+
+    tr
+      th updated_at
+      td= project.updated_at
+
+
+.well
+  != link_to('Edit', path_to.edit_project(project), {class: 'btn primary'}) + ' '
+  != link_to('Delete', path_to.project(project), {class: 'btn danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'})
+  span= ' or '
+  != link_to('Back to index', path_to.projects())

@@ -1,0 +1,10 @@
+.page-header
+  h1 New congresist
+
+- form_for(congresist, {action: path_to.congresists(), method: 'POST', id: "congresist_form"}, function (form) {
+  != partial('congresists/form.jade', {locals: {form: form, congresist: congresist}})
+  .actions
+    != form.submit('Create congresist', {class: 'btn'})
+    span= ' or '
+    != link_to('Cancel', path_to.congresists(), {class: 'btn'})
+- });

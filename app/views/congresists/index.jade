@@ -1,0 +1,24 @@
+.page-header
+  h1 Index of congresist
+
+.row
+  .span12
+      p!= link_to ('<i class="icon-plus icon-white"></i> New congresist', path_to.new_congresist(), {class: 'btn btn-primary'})
+      if congresists.length > 0
+        table.table.table-striped
+          thead
+            tr
+              th ID
+              th Actions
+            tbody
+              - congresists.forEach(function (congresist) {
+                tr
+                  td
+                    strong!= link_to(congresist.name, path_to.congresist(congresist))
+                  td
+                    != link_to('<i class="icon-edit icon-white"></i> Edit', path_to.edit_congresist(congresist), {class: 'btn btn-mini btn-primary'}) + ' '
+                    != link_to('<i class="icon-remove icon-white"></i> Delete', path_to.congresist(congresist), {class: 'btn btn-mini btn-danger', method: 'delete', remote: true, jsonp: '(function (u) {location.href = u;})'})
+              - });
+      else
+        p.alert.alert-block.alert-info
+          strong No congresists were found.

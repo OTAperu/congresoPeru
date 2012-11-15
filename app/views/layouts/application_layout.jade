@@ -3,7 +3,41 @@ html
   head
     title= title
     != stylesheet_link_tag('bootstrap', 'style', 'bootstrap-responsive')
-    != javascript_include_tag('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', 'bootstrap', 'rails', 'application')
     != csrf_meta_tag()
   body
-    != body
+    .navbar
+      .navbar-inner
+        .container
+          button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand Congreso
+          .nav-collapse.collapse
+          ul.nav
+            li
+              a(href='/parties') Partidos
+            li
+              a(href='/congresists') Congresistas
+            li
+              a(href='/projects') Proyectos
+
+    .container
+      - var flash = request.flash('info').pop(); if (flash) {
+        .alert.alert-info
+          a.close(data-dismiss='alert') ×
+          span= flash
+      - }
+
+      - flash = request.flash('error').pop(); if (flash) {
+        .alert.alert-error
+          a.close(data-dismiss='alert') ×
+          span= flash
+      - }
+
+      != body
+
+      hr
+      footer
+        p © Company 2012
+    != javascript_include_tag('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', 'bootstrap', 'rails', 'application')

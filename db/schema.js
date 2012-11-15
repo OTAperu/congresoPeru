@@ -21,3 +21,35 @@
 
 */
 
+var Party = describe('Party', function () {
+    property('name', String);
+    property('review', String);
+    property('image', String);
+    property('founded', String);
+    property('ideology', String);
+    property('website', String);
+});var Congresist = describe('Congresist', function () {
+    property('name', String);
+    property('photo', String);
+    property('position', String);
+    property('properties', String);
+    property('stateId', String);
+    property('partyId', String);
+    property('salary', Number);
+    property('benefits', String);
+    property('totalVotes', Number);
+    property('status', Boolean);
+    property('background', String);
+    property('birthDate', Date);
+    property('created_at', Date);
+    property('updated_at', Date);
+});var Project = describe('Project', function () {
+    property('name', String);
+    property('summary', String);
+    property('text', String);
+    property('conId', String);
+    property('created', Date);
+    property('approval', Date);
+    property('created_at', Date);
+    property('updated_at', Date);
+});

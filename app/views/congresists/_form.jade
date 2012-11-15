@@ -1,0 +1,56 @@
+.control-group
+  != form.label("name", false, {class: "control-label"})
+  .controls
+    != form.input("name")
+.control-group
+  != form.label("photo", false, {class: "control-label"})
+  .controls
+    != form.input("photo")
+.control-group
+  != form.label("position", false, {class: "control-label"})
+  .controls
+    != form.input("position")
+.control-group
+  != form.label("properties", false, {class: "control-label"})
+  .controls
+    != form.input("properties")
+.control-group
+  != form.label("stateId", false, {class: "control-label"})
+  .controls
+    != form.input("stateId")
+.control-group
+  != form.label("partyId", false, {class: "control-label"})
+  .controls
+    != form.select("partyId", parties, {fieldname: 'name', fieldvalue: 'id', select: congresist.partyId})
+.control-group
+  != form.label("salary", false, {class: "control-label"})
+  .controls
+    != form.input("salary", {type: 'number'})
+.control-group
+  != form.label("benefits", false, {class: "control-label"})
+  .controls
+    != form.input("benefits")
+.control-group
+  != form.label("totalVotes", false, {class: "control-label"})
+  .controls
+    != form.input("totalVotes", {type: 'number'})
+.control-group
+  != form.label("status", false, {class: "control-label"})
+  .controls
+    != form.checkbox("status")
+.control-group
+  != form.label("background", false, {class: "control-label"})
+  .controls
+    != form.input("background")
+.control-group
+  != form.label("birthDate", false, {class: "control-label"})
+  .controls
+    != form.input("birthDate", {type: 'date'})
+.control-group
+  != form.label("created_at", false, {class: "control-label"})
+  .controls
+    != form.input("created_at", {type: 'date'})
+.control-group
+  != form.label("updated_at", false, {class: "control-label"})
+  .controls
+    != form.input("updated_at", {type: 'date'})
