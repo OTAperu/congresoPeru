@@ -1,7 +1,7 @@
 #content
   #profile
     .about
-      - var imgPhoto = congresist.photo ? "/uploads/"+congresist.photo : "/images/photo.jpg";
+      - var imgPhoto = congresist.photo || "/images/photo.jpg";
       .photo-inner: img(src=imgPhoto, height="186", width="153")
       h1!= congresist.name
       h3!= congresist.position
@@ -58,5 +58,4 @@
       .clear
   #votes
     .extra-text Votos
-    ul#portfolio-list
     .clear

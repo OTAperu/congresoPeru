@@ -37,8 +37,8 @@ var Party = describe('Party', function () {
     property('partyId', String);
     property('salary', Number);
     property('benefits', String);
-    property('totalVotes', Number);
-    property('status', Boolean);
+    property('votes', Number);
+    property('status', Number);
     property('background', String);
     property('birthDate', Date);
     property('created_at', Date);

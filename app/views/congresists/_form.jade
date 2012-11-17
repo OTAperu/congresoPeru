@@ -65,6 +65,6 @@ script
     dataType: 'json',
     done: function (e, data) {
       var timg = data.files[0].name;
-      $('#Congresist_photo').val('congresists/#{congresist.id}'+timg.substr(timg.lastIndexOf('.')));
+      $('#Congresist_photo').val('/uploads/congresists/#{congresist.id}'+timg.substr(timg.lastIndexOf('.')));
     }
   });
