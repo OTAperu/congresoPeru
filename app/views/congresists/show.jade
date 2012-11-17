@@ -1,67 +1,62 @@
-.page-header
-  h1 Details of congresist
-
-table.table.table-bordered
-  tbody(about=path_to.congresist(congresist))
-    tr
-      th name
-      td= congresist.name
-
-    tr
-      th photo
-      td= congresist.photo
-
-    tr
-      th position
-      td= congresist.position
-
-    tr
-      th properties
-      td= congresist.properties
-
-    tr
-      th stateId
-      td= congresist.stateId
-
-    tr
-      th partyId
-      td= party.name
-
-    tr
-      th salary
-      td= congresist.salary
-
-    tr
-      th benefits
-      td= congresist.benefits
-
-    tr
-      th totalVotes
-      td= congresist.totalVotes
-
-    tr
-      th status
-      td= congresist.status
-
-    tr
-      th background
-      td= congresist.background
-
-    tr
-      th birthDate
-      td= congresist.birthDate
-
-    tr
-      th created_at
-      td= congresist.created_at
-
-    tr
-      th updated_at
-      td= congresist.updated_at
-
-
-.well
-  != link_to('Edit', path_to.edit_congresist(congresist), {class: 'btn primary'}) + ' '
-  != link_to('Delete', path_to.congresist(congresist), {class: 'btn danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'})
-  span= ' or '
-  != link_to('Back to index', path_to.congresists())
+#content
+  #profile
+    .about
+      - var imgPhoto = congresist.photo ? "/uploads/"+congresist.photo : "/images/photo.jpg";
+      .photo-inner: img(src=imgPhoto, height="186", width="153")
+      h1!= congresist.name
+      h3!= congresist.position
+      p I like to make cool and creative designs. My design stash is always full of refreshing ideas.
+    ul.personal-info
+      li
+        label Name
+        span!= congresist.name
+      li
+        label Birthday
+        span!= congresist.birthDate
+      li
+        label Married
+        span
+            - if (congresist.status) {
+              | Casado
+            - } else {
+              | Soltero
+            - }
+      li
+        label Email
+        span A.smith@gmail.com
+      li
+        label Partido
+        span!= party.name
+  .menu
+    ul.tabs
+      li.tmenu: a(href="#profile", class="tab-profile") Perfil
+      li.tmenu: a(href="#news", class="tab-news") Noticias
+      li.tmenu: a(href="#projects", class="tab-projects") Propuestas
+      li.tmenu: a(href="#votes", class="tab-projects") Votos
+  #news
+    div
+      h3.main-heading: span Noticias
+      ul.timeline
+        each article in news
+          li
+            .timelineUnit
+              h4= article.title
+                span.timelineDate= article.created_at
+              h5= article.link
+              p= article.summary
+        .clear
+    .clear
+  #projects
+    .extra-text Leyes
+      ul#projects-list
+        each project in projects
+          li.illustration.print
+            a.projects(href=path_to.project(project))
+              img(src="http://lorempixel.com/180/120", alt=project.name)
+              h2.title!= project.name
+              span.categorie!= project.approval
+      .clear
+  #votes
+    .extra-text Votos
+    ul#portfolio-list
+    .clear

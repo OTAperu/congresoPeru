@@ -1,3 +1,6 @@
+block prepend css
+  != stylesheet_link_tag("http://blueimp.github.com/jQuery-File-Upload/css/jquery.fileupload-ui.css")
+
 .control-group
   != form.label("name", false, {class: "control-label"})
   .controls
@@ -5,6 +8,8 @@
 .control-group
   != form.label("photo", false, {class: "control-label"})
   .controls
+    input#fileupload(type="file", name="files[]", data-url="/upload?imgName=congresists/#{congresist.id}")
+    br
     != form.input("photo")
 .control-group
   != form.label("position", false, {class: "control-label"})
@@ -54,3 +59,12 @@
   != form.label("updated_at", false, {class: "control-label"})
   .controls
     != form.input("updated_at", {type: 'date'})
+!= javascript_include_tag('http://blueimp.github.com/jQuery-File-Upload/js/vendor/jquery.ui.widget.js', 'http://blueimp.github.com/jQuery-File-Upload/js/jquery.iframe-transport.js', 'http://blueimp.github.com/jQuery-File-Upload/js/jquery.fileupload.js')
+script
+  $('#fileupload').fileupload({
+    dataType: 'json',
+    done: function (e, data) {
+      var timg = data.files[0].name;
+      $('#Congresist_photo').val('congresists/#{congresist.id}'+timg.substr(timg.lastIndexOf('.')));
+    }
+  });

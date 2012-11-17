@@ -4,7 +4,7 @@
 - form_for(project, {action: path_to.project(project), method: 'PUT', id: "project_form"}, function (form) {
   != partial('projects/form.jade', {locals: {form: form, project: project}})
   .actions
-    != form.submit('Update project', {class: 'btn primary'})
+    != form.submit('Update project', {class: 'btn btn-primary'})
     span= ' or '
     != link_to('Cancel', path_to.project(project), {class: 'btn'})
 - });

@@ -1,0 +1,11 @@
+#content
+  #projects
+    .extra-text Politicos
+    ul#projects-list
+      each congresist in congresists
+        li.illustration.print
+          a.projects(href=path_to.congresist(congresist))
+            - var imgPhoto = congresist.photo ? "/uploads/"+congresist.photo : "http://lorempixel.com/180/120";
+            img(src=imgPhoto, alt=congresist.name)
+            h2.title= congresist.name
+            span.categorie= congresist.position

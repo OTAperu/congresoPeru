@@ -1,0 +1,24 @@
+.page-header
+  h1 Index of article
+
+.row
+  .span12
+      p!= link_to ('<i class="icon-plus icon-white"></i> New article', path_to.new_article(), {class: 'btn btn-primary'})
+      if articles.length > 0
+        table.table.table-striped
+          thead
+            tr
+              th ID
+              th Actions
+            tbody
+              - articles.forEach(function (article) {
+                tr
+                  td
+                    strong!= link_to('article #' + article.id, path_to.article(article))
+                  td
+                    != link_to('<i class="icon-edit icon-white"></i> Edit', path_to.edit_article(article), {class: 'btn btn-mini btn-primary'}) + ' '
+                    != link_to('<i class="icon-remove icon-white"></i> Delete', path_to.article(article), {class: 'btn btn-mini btn-danger', method: 'delete', remote: true, jsonp: '(function (u) {location.href = u;})'})
+              - });
+      else
+        p.alert.alert-block.alert-info
+          strong No articles were found.

@@ -1,0 +1,39 @@
+.page-header
+  h1 Details of article
+
+table.table.table-bordered
+  tbody(about=path_to.article(article))
+    tr
+      th title
+      td= article.title
+
+    tr
+      th conId
+      td= article.conId
+
+    tr
+      th proId
+      td= article.proId
+
+    tr
+      th summary
+      td= article.summary
+
+    tr
+      th link
+      td= article.link
+
+    tr
+      th created_at
+      td= article.created_at
+
+    tr
+      th updated_at
+      td= article.updated_at
+
+
+.well
+  != link_to('Edit', path_to.edit_article(article), {class: 'btn btn-primary'}) + ' '
+  != link_to('Delete', path_to.article(article), {class: 'btn btn-danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'})
+  span= ' or '
+  != link_to('Back to index', path_to.articles())

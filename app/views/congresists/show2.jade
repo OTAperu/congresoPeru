@@ -1,0 +1,73 @@
+.page-header
+  h1 Details of congresist
+
+table.table.table-bordered
+  tbody(about=path_to.congresist(congresist))
+    tr
+      th name
+      td= congresist.name
+
+    tr
+      th photo
+      td= congresist.photo
+
+    tr
+      th position
+      td= congresist.position
+
+    tr
+      th properties
+      td= congresist.properties
+
+    tr
+      th stateId
+      td= congresist.stateId
+
+    tr
+      th partyId
+      td= party.name
+
+    tr
+      th salary
+      td= congresist.salary
+
+    tr
+      th benefits
+      td= congresist.benefits
+
+    tr
+      th totalVotes
+      td= congresist.totalVotes
+
+    tr
+      th status
+      td= congresist.status
+
+    tr
+      th background
+      td= congresist.background
+
+    tr
+      th birthDate
+      td= congresist.birthDate
+
+    tr
+      th created_at
+      td= congresist.created_at
+
+    tr
+      th updated_at
+      td= congresist.updated_at
+
+h2= congresist.projects[1]
+table
+  each project in projects
+    tr
+      td= project.name
+      td= project.summary
+
+.well
+  != link_to('Edit', path_to.edit_congresist(congresist), {class: 'btn btn-primary'}) + ' '
+  != link_to('Delete', path_to.congresist(congresist), {class: 'btn btn-danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'})
+  span= ' or '
+  != link_to('Back to index', path_to.congresists())

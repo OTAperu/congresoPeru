@@ -4,7 +4,7 @@
 - form_for(congresist, {action: path_to.congresist(congresist), method: 'PUT', id: "congresist_form"}, function (form) {
   != partial('congresists/form.jade', {locals: {form: form, congresist: congresist}})
   .actions
-    != form.submit('Update congresist', {class: 'btn primary'})
+    != form.submit('Update congresist', {class: 'btn btn-primary'})
     span= ' or '
     != link_to('Cancel', path_to.congresist(congresist), {class: 'btn'})
 - });

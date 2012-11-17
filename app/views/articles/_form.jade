@@ -1,0 +1,28 @@
+.control-group
+  != form.label("title", false, {class: "control-label"})
+  .controls
+    != form.input("title")
+.control-group
+  != form.label("conId", false, {class: "control-label"})
+  .controls
+    != form.input("conId")
+.control-group
+  != form.label("proId", false, {class: "control-label"})
+  .controls
+    != form.input("proId")
+.control-group
+  != form.label("summary", false, {class: "control-label"})
+  .controls
+    != form.input("summary")
+.control-group
+  != form.label("link", false, {class: "control-label"})
+  .controls
+    != form.input("link")
+.control-group
+  != form.label("created_at", false, {class: "control-label"})
+  .controls
+    != form.input("created_at", {type: 'date'})
+.control-group
+  != form.label("updated_at", false, {class: "control-label"})
+  .controls
+    != form.input("updated_at", {type: 'date'})
