@@ -1,4 +1,5 @@
-var express = require('express');
+var express = require('express')
+    , upload = require('jquery-file-upload-middleware');
 
 app.configure(function(){
     var cwd = process.cwd();
@@ -8,6 +9,10 @@ app.configure(function(){
     app.set('view options', {complexNames: true});
     app.set('jsDirectory', '/javascripts/');
     app.set('cssDirectory', '/stylesheets/');
+    app.use('/upload', upload({
+        uploadDir: cwd + '/public/uploads',
+        uploadUrl: '/uploads/'
+    }));
     app.use(express.bodyParser());
     app.use(express.cookieParser('secret'));
     app.use(express.session({secret: 'secret'}));

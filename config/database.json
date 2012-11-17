@@ -6,6 +6,7 @@
   { "driver":   "memory"
   }
 , "production":
-  { "driver":   "memory"
+  { "driver":   "mongoose"
+  , "url":      "mongodb://edda885e-cbde-4fc3-9fae-89ef096d872b:6930384c-a8bd-4c55-b47e-53330548daa5@10.0.21.92:25629/db"
   }
 }

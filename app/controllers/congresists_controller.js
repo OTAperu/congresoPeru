@@ -2,7 +2,8 @@ load('application');
 
 before(loadCongresist, {only: ['show', 'edit', 'update', 'destroy']});
 before(loadParties, {only: 'edit'});
-before(loadParty, {only: 'show'});
+before(loadInfo, {only: 'show'});
+before(loadNews, {only: 'show'});
 
 action('new', function () {
     this.title = 'New congresist';
@@ -74,19 +75,38 @@ function loadCongresist() {
             redirect(path_to.congresists());
         } else {
             this.congresist = congresist;
+            congresist.projects(function (err, projects) {
+                this.projects = projects;
+            }.bind(this));
             next();
         }
     }.bind(this));
 }
 
-function loadParty() {
-    Party.find(this.congresist.partyId, function (err, party) {
+action(function list() {
+    this.title = 'Congresists index';
+    Congresist.all(function (err, congresists) {
+        render({
+            congresists: congresists
+        });
+    });
+});
+
+function loadInfo() {
+    this.congresist.party(function (err, party) {
         if (err || ! party) {
             this.party = {};
         } else {
             this.party = party;
             next();
         }
+    }.bind(this));
+}
+
+function loadNews() {
+    this.congresist.news(function (err, news) {
+        this.news = news;
+        next();
     }.bind(this));
 }
 

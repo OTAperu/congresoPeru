@@ -52,4 +52,12 @@ var Party = describe('Party', function () {
     property('approval', Date);
     property('created_at', Date);
     property('updated_at', Date);
+});var Article = describe('Article', function () {
+    property('title', String);
+    property('conId', String);
+    property('proId', String);
+    property('summary', String);
+    property('link', String);
+    property('created_at', Date);
+    property('updated_at', Date);
 });

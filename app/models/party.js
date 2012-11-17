@@ -1,0 +1,1 @@
+Party.hasMany(Congresist, {as: 'congresists', foreignKey: 'partyId'});
